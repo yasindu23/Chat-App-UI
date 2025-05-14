@@ -128,6 +128,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     ),
                   ),
                 ),
+                const Gap(50),
               ],
             ),
           ),

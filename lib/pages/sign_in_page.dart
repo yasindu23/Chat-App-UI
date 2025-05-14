@@ -99,6 +99,7 @@ class _SignInPageState extends State<SignInPage> {
                     ),
                   ),
                 ),
+                const Gap(50),
               ],
             ),
           ),
