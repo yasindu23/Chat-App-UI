@@ -15,7 +15,7 @@ class RoomTile extends StatelessWidget {
           'https://avatars.githubusercontent.com/u/206174474?v=4',
         ),
       ),
-      trailing: Icon(Icons.stars_rounded),
+      // trailing: Icon(Icons.stars_rounded),
     );
   }
 }

@@ -12,7 +12,6 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Column(
       children: [
         const Gap(20),
@@ -38,7 +37,11 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         const Gap(20),
-        ListView.builder(
+        const Divider(height: 0, color: Color(0xFF353535)),
+        ListView.separated(
+          separatorBuilder:
+              (context, index) =>
+                  const Divider(height: 0, color: Color(0xFF353535)),
           physics: NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           itemCount: 20,

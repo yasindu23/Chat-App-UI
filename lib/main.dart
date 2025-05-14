@@ -39,12 +39,14 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        toolbarHeight: 70,
+        leadingWidth: 70,
         leading:
             _selectedIndex == 0
                 ? Container(
                   margin: const EdgeInsets.symmetric(
-                    horizontal: 7,
-                    vertical: 7,
+                    horizontal: 13,
+                    vertical: 13,
                   ),
                   decoration: BoxDecoration(
                     color: Color.fromARGB(255, 51, 51, 51),
@@ -58,7 +60,7 @@ class _MyAppState extends State<MyApp> {
               ? Padding(
                 padding: const EdgeInsets.only(right: 16.0),
                 child: CircleAvatar(
-                  radius: 18,
+                  radius: 20,
                   backgroundColor: Colors.grey.shade300,
                   backgroundImage: NetworkImage(
                     'https://avatars.githubusercontent.com/u/206174474?v=4',
@@ -74,7 +76,7 @@ class _MyAppState extends State<MyApp> {
               : _selectedIndex == 1
               ? 'Invitations'
               : _selectedIndex == 2
-              ? 'Create Room'
+              ? 'Room'
               : 'Profile',
         ),
       ),
