@@ -80,7 +80,7 @@ class _MyAppState extends State<MyApp> {
               : 'Profile',
         ),
       ),
-      body: SingleChildScrollView(child: pages[_selectedIndex]),
+      body: pages[_selectedIndex],
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(40),
@@ -89,13 +89,13 @@ class _MyAppState extends State<MyApp> {
         margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
         padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 6),
         child: GNav(
-          tabBackgroundColor: const Color.fromARGB(255, 36, 36, 36),
+          tabBackgroundColor: const Color(0xFF242424),
           gap: 8,
           padding: EdgeInsets.all(12),
           tabs: const [
             GButton(icon: Icons.home_rounded, text: 'Home'),
             GButton(icon: Icons.mail, text: 'Invitations', iconSize: 23.5),
-            GButton(icon: Icons.add_box_rounded, text: 'Create Room'),
+            GButton(icon: Icons.add_box_rounded, text: 'Room'),
             GButton(icon: Icons.person_rounded, text: 'Profile'),
           ],
           onTabChange: (value) {

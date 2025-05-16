@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:seacre_t/pages/chat_details_page.dart';
 
 class RoomTile extends StatelessWidget {
   const RoomTile({super.key});
@@ -6,6 +7,11 @@ class RoomTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      onTap:
+          () => Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => ChatDetailsPage()),
+          ),
       title: Text('Room Name'),
       subtitle: Text('Description for app'),
       leading: CircleAvatar(
