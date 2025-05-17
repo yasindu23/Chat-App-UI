@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-
-class ChatMessage {
-  String messageContent;
-  String messageType;
-  ChatMessage({required this.messageContent, required this.messageType});
-}
+import 'package:seacre_t/pages/group_details_page.dart';
 
 class ChatDetailsPage extends StatefulWidget {
   const ChatDetailsPage({super.key});
@@ -21,53 +16,55 @@ class _ChatDetailsPageState extends State<ChatDetailsPage> {
       appBar: AppBar(
         elevation: 0,
         automaticallyImplyLeading: false,
-        flexibleSpace: SafeArea(
-          child: Container(
-            padding: EdgeInsets.only(right: 16),
-            child: Row(
-              children: <Widget>[
-                IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  icon: Icon(
-                    Icons.chevron_left_rounded,
-                    color: Colors.white,
-                    size: 27,
+        flexibleSpace: GestureDetector(
+          onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => GroupDetailsPage(),)),
+          child: SafeArea(
+            child: Container(
+              padding: EdgeInsets.only(right: 16),
+              child: Row(
+                children: <Widget>[
+                  IconButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon: Icon(
+                      Icons.chevron_left_rounded,
+                      color: Colors.white,
+                      size: 27,
+                    ),
                   ),
-                ),
-                SizedBox(width: 2),
-                CircleAvatar(
-                  backgroundImage: NetworkImage(
-                    "https://avatars.githubusercontent.com/u/206174474?v=4",
+                  SizedBox(width: 2),
+                  CircleAvatar(
+                    backgroundImage: NetworkImage(
+                      "https://avatars.githubusercontent.com/u/206174474?v=4",
+                    ),
+                    maxRadius: 20,
                   ),
-                  maxRadius: 20,
-                ),
-                SizedBox(width: 12),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text(
-                        "Room Name",
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
+                  SizedBox(width: 12),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          "Room Name",
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
-                      ),
-                      Text(
-                        "12 Members",
-                        style: TextStyle(
-                          color: Colors.grey.shade600,
-                          fontSize: 13,
+                        Text(
+                          "12 Members",
+                          style: TextStyle(
+                            color: Colors.grey.shade600,
+                            fontSize: 13,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-                Icon(Icons.settings, color: Colors.black54),
-              ],
+                ],
+              ),
             ),
           ),
         ),
@@ -77,6 +74,7 @@ class _ChatDetailsPageState extends State<ChatDetailsPage> {
           ListView.builder(
             itemCount: 20,
             shrinkWrap: true,
+            padding: const EdgeInsets.only(bottom: 70),
             physics: PageScrollPhysics(),
             itemBuilder: (context, index) {
               return Container(
@@ -98,9 +96,20 @@ class _ChatDetailsPageState extends State<ChatDetailsPage> {
                       color: const Color.fromARGB(255, 78, 143, 255),
                     ),
                     padding: EdgeInsets.symmetric(horizontal: 15, vertical: 7),
-                    child: Text(
-                      'Hii Bro Mk',
-                      style: TextStyle(color: Colors.white),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Yasindu Samarasinghe',
+                          style: TextStyle(
+                            color: const Color.fromARGB(216, 255, 255, 255),
+                          ),
+                        ),
+                        Text(
+                          'Hii Bro Mk',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -108,7 +117,7 @@ class _ChatDetailsPageState extends State<ChatDetailsPage> {
             },
           ),
           Align(
-            alignment: Alignment.bottomLeft,
+            alignment: Alignment.bottomCenter,
             child: Container(
               margin: const EdgeInsets.only(bottom: 10, left: 10, right: 10),
               decoration: BoxDecoration(
@@ -119,6 +128,8 @@ class _ChatDetailsPageState extends State<ChatDetailsPage> {
               height: 50,
               width: double.infinity,
               child: Row(
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   const Gap(10),
                   Expanded(

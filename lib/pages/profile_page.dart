@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:seacre_t/components/profile_tile.dart';
+import 'package:seacre_t/pages/settings_page.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -90,6 +91,11 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
           const Divider(height: 0, color: Color(0xFF353535)),
           ListTile(
+            onTap:
+                () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SettingsPage()),
+                ),
             title: Text(
               'Settings',
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
