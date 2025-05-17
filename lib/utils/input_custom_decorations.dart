@@ -11,3 +11,19 @@ InputDecoration mainInputDecoration(String hintText) => InputDecoration(
     borderRadius: BorderRadius.circular(15),
   ),
 );
+
+InputDecoration searchInputDecoration(String hintText) => InputDecoration(
+  contentPadding: EdgeInsets.symmetric(vertical: 0),
+  prefixIcon: Container(
+    padding: const EdgeInsets.only(left: 10),
+    child: Icon(Icons.search_rounded),
+  ),
+  hintText: hintText,
+  hintStyle: TextStyle(color: Color.fromARGB(255, 133, 133, 133)),
+  border: OutlineInputBorder(
+    borderRadius: BorderRadius.circular(30),
+    borderSide: BorderSide.none,
+  ),
+  filled: true,
+  fillColor: Color(0xFF141414),
+);

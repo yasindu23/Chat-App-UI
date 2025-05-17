@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:seacre_t/pages/home_page.dart';
 import 'package:seacre_t/pages/invitation_page.dart';
+import 'package:seacre_t/pages/notifications_page.dart';
 import 'package:seacre_t/pages/profile_page.dart';
 import 'package:seacre_t/pages/create_room_page.dart';
 
@@ -43,16 +44,25 @@ class _MyAppState extends State<MyApp> {
         leadingWidth: 70,
         leading:
             _selectedIndex == 0
-                ? Container(
-                  margin: const EdgeInsets.symmetric(
-                    horizontal: 13,
-                    vertical: 13,
+                ? GestureDetector(
+                  onTap:
+                      () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => NotificationsPage(),
+                        ),
+                      ),
+                  child: Container(
+                    margin: const EdgeInsets.symmetric(
+                      horizontal: 13,
+                      vertical: 13,
+                    ),
+                    decoration: BoxDecoration(
+                      color: Color.fromARGB(255, 51, 51, 51),
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    child: Icon(Icons.notifications_rounded),
                   ),
-                  decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 51, 51, 51),
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  child: Icon(Icons.notifications_rounded),
                 )
                 : null,
         actions: [

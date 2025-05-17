@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:seacre_t/components/room_tile.dart';
+import 'package:seacre_t/utils/input_custom_decorations.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -19,23 +20,7 @@ class _HomePageState extends State<HomePage> {
           Container(
             height: 45,
             padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: TextField(
-              decoration: InputDecoration(
-                contentPadding: EdgeInsets.symmetric(vertical: 0),
-                prefixIcon: Container(
-                  padding: const EdgeInsets.only(left: 10),
-                  child: Icon(Icons.search_rounded),
-                ),
-                hintText: 'Search Rooms',
-                hintStyle: TextStyle(color: Color.fromARGB(255, 133, 133, 133)),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(30),
-                  borderSide: BorderSide.none,
-                ),
-                filled: true,
-                fillColor: Color(0xFF141414),
-              ),
-            ),
+            child: TextField(decoration: searchInputDecoration('Search Rooms')),
           ),
           const Gap(20),
           const Divider(height: 0, color: Color(0xFF353535)),

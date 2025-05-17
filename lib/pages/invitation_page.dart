@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:seacre_t/components/invitation_tile.dart';
+import 'package:seacre_t/utils/input_custom_decorations.dart';
 
 class InvitationPage extends StatefulWidget {
   const InvitationPage({super.key});
@@ -20,21 +21,7 @@ class _InvitationPageState extends State<InvitationPage> {
             height: 45,
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: TextField(
-              decoration: InputDecoration(
-                contentPadding: EdgeInsets.symmetric(vertical: 0),
-                prefixIcon: Container(
-                  padding: const EdgeInsets.only(left: 10),
-                  child: Icon(Icons.search_rounded),
-                ),
-                hintText: 'Search invites by room name',
-                hintStyle: TextStyle(color: Color.fromARGB(255, 133, 133, 133)),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(30),
-                  borderSide: BorderSide.none,
-                ),
-                filled: true,
-                fillColor: Color(0xFF141414),
-              ),
+              decoration: searchInputDecoration('Search invites by room name'),
             ),
           ),
           const Gap(20),

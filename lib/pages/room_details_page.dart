@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
 import 'package:seacre_t/components/member_tile.dart';
 import 'package:seacre_t/utils/custom_buttons.dart';
+import 'package:seacre_t/utils/input_custom_decorations.dart';
 
 class GroupDetailsPage extends StatefulWidget {
   const GroupDetailsPage({super.key});
@@ -36,24 +37,7 @@ class _GroupDetailsPageState extends State<GroupDetailsPage> {
                     height: 35,
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: TextField(
-                      decoration: InputDecoration(
-                        contentPadding: EdgeInsets.symmetric(vertical: 0),
-                        prefixIcon: Padding(
-                          padding: const EdgeInsets.only(left: 10, right: 5),
-                          child: Icon(Icons.search_rounded),
-                        ),
-                        hintText: 'Search Members',
-                        hintStyle: TextStyle(
-                          color: Color.fromARGB(255, 133, 133, 133),
-                          fontSize: 14,
-                        ),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide.none,
-                        ),
-                        filled: true,
-                        fillColor: Color(0xFF141414),
-                      ),
+                      decoration: searchInputDecoration('Search Members'),
                     ),
                   ),
                   SizedBox(height: 10),
@@ -205,23 +189,7 @@ class _GroupDetailsPageState extends State<GroupDetailsPage> {
                       height: 40,
                       padding: const EdgeInsets.symmetric(horizontal: 15),
                       child: TextField(
-                        decoration: InputDecoration(
-                          contentPadding: EdgeInsets.symmetric(vertical: 0),
-                          prefixIcon: Container(
-                            padding: const EdgeInsets.only(left: 10),
-                            child: Icon(Icons.search_rounded),
-                          ),
-                          hintText: 'Search Members',
-                          hintStyle: TextStyle(
-                            color: Color.fromARGB(255, 133, 133, 133),
-                          ),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
-                            borderSide: BorderSide.none,
-                          ),
-                          filled: true,
-                          fillColor: Color(0xFF141414),
-                        ),
+                        decoration: searchInputDecoration('Search Members'),
                       ),
                     ),
                     Padding(
