@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:seacre_t/pages/group_details_page.dart';
+import 'package:seacre_t/pages/room_details_page.dart';
 
 class ChatDetailsPage extends StatefulWidget {
   const ChatDetailsPage({super.key});

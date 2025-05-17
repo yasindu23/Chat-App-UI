@@ -1,42 +1,10 @@
 import 'package:flutter/material.dart';
 
 class MemberTile extends StatelessWidget {
-  const MemberTile({super.key});
+  const MemberTile({super.key, required this.icon, required this.process});
 
-  void deleteMemberShowDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      builder:
-          (context) => AlertDialog(
-            contentPadding: const EdgeInsets.only(bottom: 15, top: 10),
-            titlePadding: const EdgeInsets.only(
-              top: 10,
-              left: 20,
-              right: 20,
-              bottom: 0,
-            ),
-            title: Text('Remove keyura01', style: TextStyle(fontSize: 17)),
-            content: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  height: 30,
-                  width: double.infinity, // Full width of parent
-                  child: ElevatedButton.icon(
-                    onPressed: () {},
-                    icon: Icon(Icons.delete_rounded, color: Color(0xFFDF436F)),
-                    label: Text(
-                      'Remove',
-                      style: TextStyle(color: Color(0xFFDF436F)),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-    );
-  }
+  final IconData icon;
+  final Function() process;
 
   @override
   Widget build(BuildContext context) {
@@ -54,11 +22,8 @@ class MemberTile extends StatelessWidget {
           title: Text('Keyura Sithika', style: TextStyle(color: Colors.white)),
           subtitle: Text('keyura_01'),
           trailing: GestureDetector(
-            onTap: () => deleteMemberShowDialog(context),
-            child: Icon(
-              Icons.delete_rounded,
-              color: const Color.fromARGB(190, 255, 82, 82),
-            ),
+            onTap: process,
+            child: Icon(icon, color: Colors.white),
           ),
         ),
         const Divider(height: 0, color: Color(0xFF353535)),
