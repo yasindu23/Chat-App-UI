@@ -3,10 +3,12 @@ const authRouter = express()
 
 const {
     signIn,
-    signUp
+    signUp,
+    createAccessToken
 } = require('../controller/auth-controller')
 
-authRouter.post('/signup', signUp)
 authRouter.post('/signin', signIn)
+authRouter.post('/signup', signUp)
+authRouter.get('/token', createAccessToken)
 
 module.exports = authRouter
