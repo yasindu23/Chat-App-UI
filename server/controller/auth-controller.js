@@ -1,5 +1,5 @@
 const CustomError = require('../errors/custom-error')
-const User = require('../model/user-model')
+const User = require('../models/user-model')
 
 const jwt = require("jsonwebtoken")
 
@@ -65,8 +65,24 @@ const createAccessToken = async (req, res, next) => {
     }
 }
 
+const checkPassword = async (req, res, next) => {
+    try {
+        const { password } = req.body
+        const userData = await User.find({ username : req.user.username })
+
+        if (await userData.comparePassword(password)) {
+            return res.status(200).json({ success: true, data: 'Password is ok' })
+        }
+
+        res.status(400).json({success : false, data: 'Password is not ok'})
+    } catch (error) {
+        throw next(error)
+    }
+}
+
 module.exports = {
     signIn,
     signUp,
-    createAccessToken
+    createAccessToken,
+    checkPassword
 }
