@@ -22,14 +22,14 @@ const userSchema = new mongoose.Schema({
     joinedRooms: {
         type: [String]
     },
-    ownRooms: {
-        type: [String]
-    },
     invites: {
         type: [String]
     },
     password: {
         type: String
+    },
+    refreshToken: {
+        type: [String]
     }
 })
 
@@ -44,7 +44,7 @@ userSchema.methods.comparePassword = async function (currentPassword) {
 
 userSchema.methods.createToken = function (tokenKey, expireTime) {
     return jwt.sign(
-        { username: this.username, displayName: this.displayName }, tokenKey, {
+        { username: this.username, id: this._id }, tokenKey, {
         expiresIn: expireTime
     })
 }

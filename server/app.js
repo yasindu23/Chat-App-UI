@@ -9,10 +9,16 @@ const connectDB = require('./db/connect')
 const errorHandler = require('./middleware/error-handler')
 
 const authRouter = require('./routers/auth-router')
+const imageRouter = require('./routers/image-router')
+const userRouter = require('./routers/user-router')
+const roomRouter = require('./routers/room-router')
 
 app.use(express.json())
 
 app.use('/api/v1/auth', authRouter)
+app.use('/api/v1/image', imageRouter)
+app.use('/api/v1/user', userRouter)
+app.use('/api/v1/room', roomRouter)
 
 app.use(errorHandler)
 

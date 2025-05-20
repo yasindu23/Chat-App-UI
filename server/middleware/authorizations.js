@@ -10,10 +10,10 @@ const authorization = async (req, res, next) => {
 
     const accessToken = authorization.split(' ')[1]
     try {
-        const { username, displayName } =
+        const { username, id } =
             jwt.verify(accessToken, process.env.ACCESS_TOKEN_KEY)
 
-        req.user = { displayName, username }
+        req.user = { id, username }
         next()
     } catch (error) {
         throw new CustomError('Forbidden!', 403)
