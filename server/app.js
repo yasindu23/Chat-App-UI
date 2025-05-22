@@ -5,6 +5,8 @@ const http = require('http');
 const app = express();
 const server = http.createServer(app);
 
+const cors = require('cors')
+
 const connectDB = require('./db/connect')
 const errorHandler = require('./middleware/error-handler')
 
@@ -13,7 +15,16 @@ const imageRouter = require('./routers/image-router')
 const userRouter = require('./routers/user-router')
 const roomRouter = require('./routers/room-router')
 
+app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
+app.use(cors({ origin: "*" }));
+
+app.use((req, res, next) => {
+    res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+    res.setHeader('Pragma', 'no-cache');
+    res.setHeader('Expires', '0');
+    next();
+});
 
 app.use('/api/v1/auth', authRouter)
 app.use('/api/v1/image', imageRouter)

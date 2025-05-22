@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
+import 'package:seacre_t/controllers/auth_controller.dart';
 import 'package:seacre_t/pages/sign_in_page.dart';
 import 'package:seacre_t/utils/input_custom_decorations.dart';
 
@@ -11,6 +13,26 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
+  late TextEditingController _username;
+  late TextEditingController _displayName;
+  late TextEditingController _password;
+
+  @override
+  void initState() {
+    _username = TextEditingController();
+    _displayName = TextEditingController();
+    _password = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _username.dispose();
+    _displayName.dispose();
+    _password.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,6 +81,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 ),
                 const Gap(4),
                 TextField(
+                  controller: _username,
                   decoration: mainInputDecoration('Enter your user name'),
                 ),
                 const Gap(5),
@@ -87,6 +110,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 ),
                 const Gap(4),
                 TextField(
+                  controller: _displayName,
                   decoration: mainInputDecoration('Enter your display name'),
                 ),
                 const Gap(20),
@@ -103,30 +127,43 @@ class _SignUpPageState extends State<SignUpPage> {
                 ),
                 const Gap(4),
                 TextField(
+                  obscureText: true,
+                  controller: _password,
                   decoration: mainInputDecoration('Enter your password'),
                 ),
                 const Gap(25),
-                SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xFF3A519E),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(
-                          12,
-                        ), // Decrease this for less rounded corners
+                Consumer(
+                  builder:
+                      (context, ref, child) => SizedBox(
+                        width: double.infinity,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Color(0xFF3A519E),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(
+                                12,
+                              ), // Decrease this for less rounded corners
+                            ),
+                          ),
+                          onPressed: () {
+                            signUp(
+                              _username.text,
+                              _displayName.text,
+                              _password.text,
+                              context,
+                              ref,
+                            );
+                          },
+                          child: const Text(
+                            'Sign Up',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 17,
+                            ),
+                          ),
+                        ),
                       ),
-                    ),
-                    onPressed: () {},
-                    child: const Text(
-                      'Sign Up',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 17,
-                      ),
-                    ),
-                  ),
                 ),
                 const Gap(50),
               ],

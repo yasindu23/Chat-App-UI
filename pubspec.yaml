@@ -37,6 +37,10 @@ dependencies:
   gap: ^3.0.1
   google_nav_bar: ^5.0.7
   font_awesome_flutter: ^10.8.0
+  http: ^1.4.0
+  flutter_riverpod: ^2.6.1
+  shared_preferences: ^2.5.3
+  intl: ^0.20.2
 
 dev_dependencies:
   flutter_test:

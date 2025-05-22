@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:seacre_t/pages/home_page.dart';
 import 'package:seacre_t/pages/invitation_page.dart';
 import 'package:seacre_t/pages/notifications_page.dart';
 import 'package:seacre_t/pages/profile_page.dart';
 import 'package:seacre_t/pages/create_room_page.dart';
+import 'package:seacre_t/pages/sign_up_page.dart';
 
 void main() {
   runApp(
@@ -14,7 +16,7 @@ void main() {
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: const Color(0xFF1A1A1B),
       ),
-      home: const MyApp(),
+      home: ProviderScope(child: const SignUpPage()),
     ),
   );
 }
