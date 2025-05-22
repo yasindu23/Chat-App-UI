@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:seacre_t/controllers/auth_controller.dart';
 import 'package:seacre_t/pages/sign_up_page.dart';
 import 'package:seacre_t/utils/input_custom_decorations.dart';
 
@@ -11,7 +12,23 @@ class SignInPage extends StatefulWidget {
 }
 
 class _SignInPageState extends State<SignInPage> {
-  
+  late TextEditingController _username;
+  late TextEditingController _password;
+
+  @override
+  void initState() {
+    _username = TextEditingController();
+    _password = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _username.dispose();
+    _password.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,6 +76,7 @@ class _SignInPageState extends State<SignInPage> {
                 ),
                 const Gap(4),
                 TextField(
+                  controller: _username,
                   decoration: mainInputDecoration('Enter your user name'),
                 ),
                 const Gap(20),
@@ -75,6 +93,7 @@ class _SignInPageState extends State<SignInPage> {
                 ),
                 const Gap(4),
                 TextField(
+                  controller: _password,
                   decoration: mainInputDecoration('Enter your password'),
                 ),
                 const Gap(25),
@@ -89,7 +108,13 @@ class _SignInPageState extends State<SignInPage> {
                         ), // Decrease this for less rounded corners
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      signIn(
+                        username: _username.text,
+                        password: _password.text,
+                        context: context,
+                      );
+                    },
                     child: const Text(
                       'Sign In',
                       style: TextStyle(

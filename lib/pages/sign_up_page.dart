@@ -68,6 +68,23 @@ class _SignUpPageState extends State<SignUpPage> {
                       TextAlign.center, // Optional: centers the whole block
                 ),
                 const Gap(30),
+                ////////////////// Display Name
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    const Gap(5),
+                    Text(
+                      'Display Name',
+                      style: TextStyle(color: Colors.white, fontSize: 13.5),
+                    ),
+                  ],
+                ),
+                const Gap(4),
+                TextField(
+                  controller: _displayName,
+                  decoration: mainInputDecoration('Enter your display name'),
+                ),
+                const Gap(20),
                 ////////////////// User Name
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -95,23 +112,6 @@ class _SignUpPageState extends State<SignUpPage> {
                       style: TextStyle(fontSize: 13.5),
                     ),
                   ],
-                ),
-                const Gap(20),
-                ////////////////// Display Name
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    const Gap(5),
-                    Text(
-                      'Display Name',
-                      style: TextStyle(color: Colors.white, fontSize: 13.5),
-                    ),
-                  ],
-                ),
-                const Gap(4),
-                TextField(
-                  controller: _displayName,
-                  decoration: mainInputDecoration('Enter your display name'),
                 ),
                 const Gap(20),
                 ////////////////// Password

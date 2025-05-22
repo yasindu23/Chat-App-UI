@@ -3,11 +3,11 @@ import 'package:seacre_t/models/user_model.dart';
 
 final userProvider = StateProvider<User>(
   (ref) => User(
-    id: '',
-    username: '',
-    displayName: '',
-    profilePic: '',
-    joinedDate: '',
+    id: null,
+    username: null,
+    displayName: null,
+    profilePic: null,
+    joinedDate: null,
     joinedRooms: [],
     invites: [],
   ),

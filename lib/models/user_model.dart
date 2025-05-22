@@ -1,11 +1,11 @@
 import 'package:intl/intl.dart';
 
 class User {
-  final String id;
-  final String username;
-  final String displayName;
-  final String profilePic;
-  final String joinedDate; // it's a String in dd/MM/yyyy
+  final String? id;
+  final String? username;
+  final String? displayName;
+  final String? profilePic;
+  final String? joinedDate; // it's a String in dd/MM/yyyy
   final List<String> joinedRooms;
   final List<String> invites;
 
