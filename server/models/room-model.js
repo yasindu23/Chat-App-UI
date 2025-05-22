@@ -2,7 +2,7 @@
 const mongoose = require('mongoose')
 
 const roomSchema = new mongoose.Schema({
-    roomName : {
+    roomName: {
         type: String,
     },
     image: {
@@ -15,6 +15,9 @@ const roomSchema = new mongoose.Schema({
         type: String
     },
     members: {
+        type: [String]
+    },
+    reports: {
         type: [String]
     }
 })

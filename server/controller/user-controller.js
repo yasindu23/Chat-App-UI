@@ -1,4 +1,6 @@
 const User = require('../models/user-model')
+const Room = require('../models/room-model')
+
 const CustomError = require('../errors/custom-error')
 
 const updateUser = async (req, res, next) => {
@@ -26,7 +28,23 @@ const getUserData = async (req, res, next) => {
     }
 }
 
+const getUserJoinedRooms = async (req, res, next) => {
+    try {
+        const currentUserId = req.user.id
+
+        const currentUser = await User.findOne({ _id: currentUserId })
+        const userJoinedRooms = currentUser.joinedRooms
+
+        const rooms = await Room.find({ _id: { $in: userJoinedRooms } })
+
+        res.status(200).json({ success: true, data: rooms })
+    } catch (error) {
+        throw next(error)
+    }
+}
+
 module.exports = {
     updateUser,
-    getUserData
+    getUserData,
+    getUserJoinedRooms
 }

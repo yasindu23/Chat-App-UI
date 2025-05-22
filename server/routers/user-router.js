@@ -7,11 +7,13 @@ const { uploadImage } = require('../controller/image-controller')
 const authorization = require('../middleware/authorizations')
 const {
     updateUser,
-    getUserData
+    getUserData,
+    getUserJoinedRooms
 } = require('../controller/user-controller')
 
 const upload = multer({ storage: multer.memoryStorage() });
 
+userRouter.get('/rooms', authorization, getUserJoinedRooms)
 userRouter.patch('/:id', authorization, upload.single('image'), async (req, res, next) => {
     if (req.file) {
         await uploadImage(req, res, next)

@@ -15,7 +15,6 @@ const authorization = require('../middleware/authorizations')
 
 const upload = multer({ storage: multer.memoryStorage() });
 
-
 roomRouter.get('/:roomId', authorization, getRoomData)
 roomRouter.post('/', authorization, upload.single('image'), uploadImage, createRoom)
 roomRouter.post('/:roomId/member', authorization, addMember)

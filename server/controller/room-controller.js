@@ -27,7 +27,8 @@ const createRoom = async (req, res, next) => {
             ...req.body,
             image: roomImage,
             admin: req.user.id,
-            members: []
+            members: [],
+            reports: [],
         })
 
         if (!roomData) throw new CustomError('Please try again to create a room', 400)
@@ -66,7 +67,6 @@ const removeMember = async (req, res, next) => {
 
         await Room.updateOne({ _id: roomData._id }, {
             $pull: {
-                
                 members: req.body.memberId
             },
         })
