@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:seacre_t/controllers/auth_controller.dart';
 import 'package:seacre_t/pages/sign_up_page.dart';
 import 'package:seacre_t/utils/input_custom_decorations.dart';
 
@@ -109,11 +108,7 @@ class _SignInPageState extends State<SignInPage> {
                       ),
                     ),
                     onPressed: () {
-                      signIn(
-                        username: _username.text,
-                        password: _password.text,
-                        context: context,
-                      );
+
                     },
                     child: const Text(
                       'Sign In',

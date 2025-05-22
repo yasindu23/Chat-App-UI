@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:seacre_t/components/profile_tile.dart';
-import 'package:seacre_t/models/user_model.dart';
 import 'package:seacre_t/pages/settings_page.dart';
-import 'package:seacre_t/providers/auth_provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -112,22 +109,6 @@ class _ProfilePageState extends State<ProfilePage> {
             builder:
                 (context, ref, child) => ListTile(
                   onTap: () async {
-                    final pref = await SharedPreferences.getInstance();
-                    pref.remove('user');
-
-                    ref
-                        .read(userProvider.notifier)
-                        .update(
-                          (state) => User(
-                            id: null,
-                            username: null,
-                            displayName: null,
-                            profilePic: null,
-                            joinedDate: null,
-                            joinedRooms: [],
-                            invites: [],
-                          ),
-                        );
                   },
                   title: Text(
                     'Log Out',
